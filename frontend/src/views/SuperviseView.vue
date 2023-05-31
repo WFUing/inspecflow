@@ -92,6 +92,13 @@
           label="处罚金额">
         </el-table-column>
       </el-table>
+      <el-row>
+        <br/>
+        <el-col :span="8">
+          <!-- 保存按钮 -->
+          <el-button type="primary" @click="handleEdit(form)">保存</el-button>
+        </el-col>
+      </el-row>
     </el-form>
   </div>
 </template>
@@ -102,6 +109,51 @@ export default {
     return {
       form: {
       },
+    }
+  },
+  methods: {
+    handleEdit(row) {
+      console.log(row)
+      this.$http.post('/api/graphql', {
+        query: `
+          mutation($superviseId: Int, $isRectify: Boolean, $violationLevel: String, $violationNature: String, $rectifyRequire: String, $responsibleCompany: String, $violationExample: String, $deductMarks: Int, $punishmentAmount: Int) {
+            updateSuperviseDetailByDetailId(superviseId: $superviseId, isRectify: $isRectify, violationLevel: $violationLevel, violationNature: $violationNature, rectifyRequire: $rectifyRequire, responsibleCompany: $responsibleCompany, violationExample: $violationExample, deductMarks: $deductMarks, punishmentAmount: $punishmentAmount) {
+              superviseId
+              company
+              construction
+              content
+              leader
+              level
+              name
+              details {
+                detailId
+                isRectify
+                violationLevel
+                violationExample
+                violationNature
+                rectifyRequire
+                responsibleCompany
+                deductMarks
+                punishmentAmount
+              }
+            }
+          }
+        `,
+        variables: {
+          superviseId: row.superviseId,
+          isRectify: row.isRectify,
+          violationLevel: row.violationLevel,
+          violationNature: row.violationNature,
+          rectifyRequire: row.rectifyRequire,
+          responsibleCompany: row.responsibleCompany,
+          violationExample: row.violationExample,
+          deductMarks: row.deductMarks,
+          punishmentAmount: row.punishmentAmount
+        }
+      }).then(res => {
+        console.log(res)
+        this.form = res.data.data.updateSuperviseDetailByDetailId
+      })
     }
   },
   mounted() {

@@ -15,10 +15,13 @@ import org.flowable.task.api.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -52,9 +55,9 @@ public class BPMNController {
 
     // query user tasks
     @PostMapping("/query")
-    public ResponseEntity query() {
+    public ResponseEntity query(@RequestBody HashMap<String, String> map) {
         List<Task> tasks = new ArrayList<>(taskService.createTaskQuery()
-                .taskAssignee("user1")
+                .taskAssignee(map.get("assignee"))
                 .list());
         List<TaskResponse> taskResponses = new ArrayList<>();
         for (Task task : tasks) {
@@ -66,10 +69,18 @@ public class BPMNController {
             }
             ExtensionElement extensionElement = extensionElements.get(0);
             String formName = extensionElement.getAttributeValue(null, "stringValue");
-            TaskResponse taskResponse = new TaskResponse(task.getName(), task.getId(), task.getAssignee(), formName);
+            TaskResponse taskResponse = new TaskResponse(task.getName(), task.getExecutionId(), task.getAssignee(), formName);
             taskResponses.add(taskResponse);
         }
         return ResponseEntity.ok(taskResponses);
+    }
+
+    // complete a user task
+    @PostMapping("/complete")
+    public ResponseEntity complete(@RequestBody HashMap<String, String> map) {
+        Task task = taskService.createTaskQuery().executionId(map.get("taskId")).singleResult();
+        taskService.complete(task.getId());
+        return ResponseEntity.ok().build();
     }
 
 }

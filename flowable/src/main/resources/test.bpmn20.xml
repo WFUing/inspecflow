@@ -5,13 +5,13 @@
     <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
     <userTask id="task1" name="任务1" flowable:formFieldValidation="true" flowable:assignee="user1">
       <extensionElements>
-        <flowable:field name="form" stringValue="views/AssignView.vue"></flowable:field>
+        <flowable:field name="form" stringValue="/assign"></flowable:field>
       </extensionElements>
     </userTask>
     <sequenceFlow id="sid-47457F7B-FC29-483D-B7A2-D1360F4D86F3" sourceRef="startEvent1" targetRef="task1"></sequenceFlow>
     <userTask id="task2" name="任务2" flowable:formFieldValidation="true" flowable:assignee="user2">
       <extensionElements>
-        <flowable:field name="form" stringValue="views/SuperviseView.vue"></flowable:field>
+        <flowable:field name="form" stringValue="/supervise/:id"></flowable:field>
       </extensionElements>
     </userTask>
     <sequenceFlow id="sid-3E388FD0-0A2B-4F54-98B7-8B9F8C5B0AC8" sourceRef="task1" targetRef="task2"></sequenceFlow>

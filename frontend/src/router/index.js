@@ -35,6 +35,11 @@ const router = new VueRouter({
       path: '/supervise/:id',
       name: 'supervise',
       component: () => import('../views/SuperviseView.vue')
+    },
+    {
+        path: '/flowable-task',
+        name: 'flowable-task',
+        component: () => import('../views/FlowableTaskView.vue')
     }
   ]
 })

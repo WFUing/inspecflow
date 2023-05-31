@@ -24,6 +24,11 @@ export default defineConfig({
             target: 'http://localhost:8080',
             changeOrigin: true,
             rewrite: (path) => path.replace(/^\/api/, '')
+        },
+        '/bpmn': {
+            target: 'http://localhost:8081',
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/bpmn/, '')
         }
     }
   }
