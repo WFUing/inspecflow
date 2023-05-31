@@ -11,11 +11,12 @@ import javax.sql.DataSource;
 public class GraphQLizeResolverProvider {
     @Resource
     private final DataSource dataSource;
-    private final GraphQLizeResolver graphQLizeResolver;
+    private GraphQLizeResolver graphQLizeResolver;
 
     public GraphQLizeResolverProvider(DataSource dataSource) {
         this.dataSource = dataSource;
-        graphQLizeResolver = new GraphQLizeResolver(dataSource);
+        this.graphQLizeResolver = new GraphQLizeResolver(dataSource);
+
     }
 
     @Bean
