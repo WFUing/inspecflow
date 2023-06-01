@@ -1,5 +1,5 @@
-#PLANTUML := java -jar ~/.vscode/extensions/jebbs.plantuml-2.17.5/plantuml.jar
-PLANTUML := java -jar ~/.vscode-server/extensions/jebbs.plantuml-2.17.5/plantuml.jar
+PLANTUML := java -jar ~/.vscode/extensions/jebbs.plantuml-2.17.5/plantuml.jar
+# PLANTUML := java -jar ~/.vscode-server/extensions/jebbs.plantuml-2.17.5/plantuml.jar
 
 UML_DIR = uml
 SOURCES = $(wildcard $(UML_DIR)/*.puml)
