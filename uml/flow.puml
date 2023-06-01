@@ -1,0 +1,7 @@
+' 参考： https://plantuml.com/zh/activity-diagram-beta
+@startuml flow
+start
+:创建督察任务;
+:分配;
+stop
+@enduml
