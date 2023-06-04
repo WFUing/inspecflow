@@ -6,16 +6,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.0</version>
+		<version>2.7.12</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>info.nemoworks</groupId>
 	<artifactId>inspecflow</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>inspecflow</name>
 	<description>Flowable inspection</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 		<flowable.version>6.8.0</flowable.version>
 	</properties>
 	<dependencies>
@@ -26,6 +26,7 @@
 		<dependency>
 			<groupId>org.flowable</groupId>
 			<artifactId>flowable-spring-boot-starter-rest</artifactId>
+			<version>${flowable.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.flowable</groupId>

@@ -30,9 +30,9 @@
     <bpmn:sequenceFlow id="Flow_0zov8r6" sourceRef="Activity_17jmtlc" targetRef="Activity_0gjgpqv" />
     <bpmn:sequenceFlow id="Flow_1oh78nj" sourceRef="Event_1d5skcg" targetRef="Activity_17jmtlc" />
     <bpmn:dataObjectReference id="DataObjectReference_146g8zp" name="计划" dataObjectRef="DataObject_0s12t44" />
-    <bpmn:dataObject id="DataObject_0s12t44" />
+    <bpmn:dataObject id="DataObject_0s12t44" name="plan" />
     <bpmn:dataObjectReference id="DataObjectReference_03xm39k" name="问题列表" dataObjectRef="DataObject_028j4rq" />
-    <bpmn:dataObject id="DataObject_028j4rq" />
+    <bpmn:dataObject id="DataObject_028j4rq" name="issues"/>
   </bpmn:process>
   <bpmn:process id="Process_0laygfe">
     <bpmn:laneSet id="LaneSet_1cysz3f">
