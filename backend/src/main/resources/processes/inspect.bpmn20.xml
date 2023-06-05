@@ -7,7 +7,7 @@
     <bpmn:messageFlow id="Flow_1t2kc3e" sourceRef="Activity_0gjgpqv" targetRef="Activity_07ki65s" />
     <bpmn:messageFlow id="Flow_1bp7o57" sourceRef="Activity_0gsjub4" targetRef="Activity_1w13l3p" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_01ztbe9" isExecutable="false">
+  <bpmn:process id="Process_01ztbe9" isExecutable="true">
     <bpmn:task id="Activity_0gjgpqv" name="指定督导组成员（含组长）派发任务">
       <bpmn:incoming>Flow_0zov8r6</bpmn:incoming>
     </bpmn:task>

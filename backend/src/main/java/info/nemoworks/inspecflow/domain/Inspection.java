@@ -3,6 +3,10 @@ package info.nemoworks.inspecflow.domain;
 public class Inspection {
     private String id;
 
+    public Inspection(){
+        
+    }
+
     public Inspection(String id){
         this.id = id;
     }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.flowable.engine.RepositoryService;
 import org.flowable.engine.RuntimeService;
 import org.flowable.engine.TaskService;
 import org.flowable.task.api.Task;
@@ -23,10 +24,14 @@ public class InspectionFlowService {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private RepositoryService repositoryService;
+    
     @Transactional
     public void startProcess(Inspection inspection) {
         Map<String, Object> variables = new HashMap<String, Object>();
-        runtimeService.startProcessInstanceByKey("articleReview", variables);
+    
+        runtimeService.startProcessInstanceById("Process_01ztbe9", variables);
     }
 
     @Transactional
