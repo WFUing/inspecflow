@@ -1,5 +1,16 @@
 # INSPECFLOW
 
+## Build
+
+```bash
+mvn clean install
+```
+
+## Run
+```bash
+mvn --projects backend spring-boot:run
+```
+
 督察数据模型图如下：
 
 
