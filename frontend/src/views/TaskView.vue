@@ -67,27 +67,42 @@ export default {
     }
   },
   mounted() {
-    this.$http.post('/api/graphql', {
-      query: `
-        query {
-          tasks {
-            taskId
-            status
-            currentNode
-            supervise {
-              superviseId
-              company
-              construction
-              name
-              leader
-            }
-          }
-        }
-      `
-    }).then(res => {
-      console.log(res)
-      this.tableData = res.data.data.tasks
-    })
+    // Mock data for the table
+    const mockData = [
+      {
+        taskId: 1,
+        status: 'Pending',
+        currentNode: 'Node 1',
+        supervise: {
+          superviseId: 101,
+          company: 'ABC Inc.',
+          construction: 'Construction Inc.',
+          name: '任务 1',
+          leader: '张三'
+        },
+        checkDate: '2023-06-01',
+        department: 'Engineering',
+        checkType: 'Regular'
+      },
+      {
+        taskId: 2,
+        status: 'Completed',
+        currentNode: 'Node 2',
+        supervise: {
+          superviseId: 102,
+          company: 'XYZ Corp.',
+          construction: 'Builder Co.',
+          name: '任务 2',
+          leader: '李四'
+        },
+        checkDate: '2023-06-02',
+        department: 'Architecture',
+        checkType: 'Urgent'
+      }
+    ];
+
+    // Set the mock data as the table data
+    this.tableData = mockData;
   }
 }
 </script>
