@@ -17,19 +17,19 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  server: {
-    proxy: {
-        '/api': {
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-            rewrite: (path) => path.replace(/^\/api/, '')
-        },
-        '/bpmn': {
-            target: 'http://localhost:8081',
-            changeOrigin: true,
-            rewrite: (path) => path.replace(/^\/bpmn/, '')
-        }
-    }
   }
+  // server: {
+  //   proxy: {
+  //       '/api': {
+  //           target: 'http://localhost:8080',
+  //           changeOrigin: true,
+  //           rewrite: (path) => path.replace(/^\/api/, '')
+  //       },
+  //       '/bpmn': {
+  //           target: 'http://localhost:8081',
+  //           changeOrigin: true,
+  //           rewrite: (path) => path.replace(/^\/bpmn/, '')
+  //       }
+  //   }
+  // }
 })
