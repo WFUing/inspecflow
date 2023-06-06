@@ -25,4 +25,12 @@
 flowable-ui界面如下：
 ![](uml/flowable-ui%E7%95%8C%E9%9D%A2.png)
 
-具体使用可以见开发者文档：`https://tkjohn.github.io/flowable-userguide/#flowableUIApps`
+登陆后界面如下：
+![](uml/flowable-ui%E4%B8%BB%E9%A1%B5%E9%9D%A2.png)
+
+- 任务应用程序：这个模块主要进行流程相关的操作，比如发起、审核等，发布后的应用程序会显示在这里
+- 建模器应用程序：这个模块是核心，主要用来创建流程、发布流程等等
+- 管理员应用程序：这个模块就是管理发布的应用程序，可以上传/删除应用程序等等
+- 身份管理应用程序：这个模块就是用户管理模块，包括用户的创建、权限分配等等
+
+具体使用可以见开发者文档：`https://tkjohn.github.io/flowable-userguide/#flowableUIApps` 或者 `https://github.com/qiudaoke/flowable-userguide/blob/master/V6.5/docs/userguide/src/zh_CN/bpmn/ch13-UI.adoc` 
