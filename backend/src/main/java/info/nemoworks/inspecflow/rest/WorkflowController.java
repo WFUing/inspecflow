@@ -8,6 +8,7 @@ import org.flowable.task.api.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,14 +31,14 @@ public class WorkflowController {
         return ResponseEntity.ok().body(workflowService.startProcess(processKeyString));
     }
 
-    @RequestMapping(value = "/tasks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<TaskDto> getTasks(@RequestParam String assignee) {
+    @GetMapping(value = "/tasks")
+    public ResponseEntity<List<TaskDto>> getTasks(@RequestParam String assignee) {
         List<Task> tasks = workflowService.getTasks(assignee);
         List<TaskDto> dtos = new ArrayList<TaskDto>();
         for (Task task : tasks) {
             dtos.add(new TaskDto(task.getId(), task.getName(), task.getAssignee()));
         }
-        return dtos;
+        return ResponseEntity.ok().body(dtos);
     }
 
 }

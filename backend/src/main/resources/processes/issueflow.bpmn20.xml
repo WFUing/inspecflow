@@ -3,7 +3,7 @@
   <collaboration id="Collaboration">
     <participant id="sid-45CA16B8-E5DF-4EF8-94BB-BFE06168197B" processRef="process"></participant>
   </collaboration>
-  <process id="process" isExecutable="true">
+  <process id="issue-process" isExecutable="true">
     <laneSet id="laneSet_process">
       <lane id="sid-9B0A71FC-AC79-48C4-9B03-810CEDF205B6" name="省专员">
         <flowNodeRef>sid-E27FE454-A731-4492-ADEE-7CF29F15C30C</flowNodeRef>

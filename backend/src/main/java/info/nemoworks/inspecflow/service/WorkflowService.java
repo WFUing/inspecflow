@@ -1,6 +1,7 @@
 package info.nemoworks.inspecflow.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.flowable.engine.RuntimeService;
 import org.flowable.engine.TaskService;
@@ -31,5 +32,15 @@ public class WorkflowService {
     @Transactional
     public void setTaskAssignee(String taskKey, String assignee){
         taskService.createTaskQuery().taskDefinitionKey(taskKey).taskAssignee(assignee);
+    }
+
+    @Transactional
+    public void completeTask(String taskId){
+        taskService.complete(taskId);
+    }
+
+    @Transactional
+    public void completeTaskWithVariables(String taskId, Map<String, Object> variables){
+        taskService.complete(taskId, variables);
     }
 }
