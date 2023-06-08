@@ -3,7 +3,7 @@ package info.nemoworks.inspecflow.delegates;
 import org.flowable.engine.delegate.DelegateExecution;
 import org.flowable.engine.delegate.JavaDelegate;
 
-public class createTaskDelegate implements JavaDelegate{
+public class CreateTaskDelegate implements JavaDelegate{
 
     @Override
     public void execute(DelegateExecution execution) {

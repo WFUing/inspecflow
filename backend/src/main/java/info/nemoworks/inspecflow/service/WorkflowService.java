@@ -20,27 +20,37 @@ public class WorkflowService {
     private TaskService taskService;
 
     @Transactional
-    public String startProcess(String processKeyString) {
-        return runtimeService.startProcessInstanceByKey(processKeyString).getId();
+    public String startInspectflowProcessByKey(String processKey) {
+        return runtimeService.startProcessInstanceByKey(processKey).getId();
     }
 
     @Transactional
-    public List<Task> getTasks(String assignee) {
+    public List<Task> getTasks() {
+        return taskService.createTaskQuery().list();
+    }
+
+    @Transactional
+    public List<Task> getTasksByAssigneeId(String assignee) {
         return taskService.createTaskQuery().taskAssignee(assignee).list();
     }
 
     @Transactional
-    public void setTaskAssignee(String taskKey, String assignee){
-        taskService.createTaskQuery().taskDefinitionKey(taskKey).taskAssignee(assignee);
+    public void claimTaskAssignee(String taskId, String assignee) {
+        taskService.claim(taskId, assignee);
     }
 
     @Transactional
-    public void completeTask(String taskId){
+    public void unclaimTaskAssignee(String taskId) {
+        taskService.unclaim(taskId);
+    }
+
+    @Transactional
+    public void completeTask(String taskId) {
         taskService.complete(taskId);
     }
 
     @Transactional
-    public void completeTaskWithVariables(String taskId, Map<String, Object> variables){
+    public void completeTaskWithVariables(String taskId, Map<String, Object> variables) {
         taskService.complete(taskId, variables);
     }
 }

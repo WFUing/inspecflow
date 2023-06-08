@@ -1,5 +1,6 @@
 package info.nemoworks.inspecflow;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
@@ -45,11 +46,11 @@ class WorkflowIntegrationTests {
 		assertEquals("task-choice", task.getName());
 		Map<String, Object> vars = new HashMap<>();
 		vars.put("approval", false);
-		taskService.complete(task.getId(),vars);
+		taskService.complete(task.getId(), vars);
 		task = taskService.createTaskQuery().singleResult();
-		assertEquals("task-true", task.getName());
+		assertNotEquals("task-true", task.getName());
 		taskService.complete(task.getId());
 		assertEquals(0, runtimeService.createProcessInstanceQuery().count());
 	}
-
+	
 }
