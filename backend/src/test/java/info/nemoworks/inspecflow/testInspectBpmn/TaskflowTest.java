@@ -7,10 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.flowable.engine.DynamicBpmnService;
-import org.flowable.engine.HistoryService;
 import org.flowable.engine.IdentityService;
-import org.flowable.engine.ManagementService;
 import org.flowable.engine.ProcessEngine;
 import org.flowable.engine.ProcessEngineConfiguration;
 import org.flowable.engine.RepositoryService;
@@ -33,10 +30,7 @@ public class TaskflowTest {
     private RepositoryService repositoryService;
     private RuntimeService runtimeService;
     private TaskService taskService;
-    private ManagementService managementService;
     private IdentityService identityService;
-    private HistoryService historyService;
-    private DynamicBpmnService dynamicBpmnService;
 
     @Before
     public void before() {
@@ -56,10 +50,7 @@ public class TaskflowTest {
         repositoryService = processEngine.getRepositoryService();
         runtimeService = processEngine.getRuntimeService();
         taskService = processEngine.getTaskService();
-        managementService = processEngine.getManagementService();
         identityService = processEngine.getIdentityService();
-        historyService = processEngine.getHistoryService();
-        dynamicBpmnService = processEngine.getDynamicBpmnService();
     }
 
     /**
@@ -148,7 +139,7 @@ public class TaskflowTest {
         if (task != null) {
             Map<String, Object> variables = new HashMap<>();
             // 设置assignee的取值
-            variables.put("assigneeName", "zhangsan");
+            variables.put("nextAssigneeId", "zhangsan");
             // 完成任务
             taskService.complete(task.getId(), variables);
             // System.out.println("完成Task");

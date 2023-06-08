@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test" exporter="Flowable Open Source Modeler" exporterVersion="6.8.0">
   <collaboration id="Collaboration">
-    <participant id="sid-45CA16B8-E5DF-4EF8-94BB-BFE06168197B" processRef="process"></participant>
+    <participant id="sid-45CA16B8-E5DF-4EF8-94BB-BFE06168197B" processRef="issueflow"></participant>
   </collaboration>
-  <process id="issue-process" isExecutable="true">
-    <laneSet id="laneSet_process">
+  <process id="issueflow" isExecutable="true">
+    <laneSet id="laneSet_issueflow">
       <lane id="sid-9B0A71FC-AC79-48C4-9B03-810CEDF205B6" name="省专员">
         <flowNodeRef>sid-E27FE454-A731-4492-ADEE-7CF29F15C30C</flowNodeRef>
         <flowNodeRef>sid-FFFB1A27-92A6-4D71-BF8E-72A02EEC9657</flowNodeRef>

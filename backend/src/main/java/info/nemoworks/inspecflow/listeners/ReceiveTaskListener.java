@@ -8,7 +8,7 @@ public class ReceiveTaskListener implements TaskListener {
     @Override
     public void notify(DelegateTask delegateTask) {
         // TODO Auto-generated method stub
-        String name = (String) delegateTask.getVariable("assigneeName");
+        String name = (String) delegateTask.getVariable("nextAssigneeId");
         delegateTask.setAssignee(name);
     }
 
