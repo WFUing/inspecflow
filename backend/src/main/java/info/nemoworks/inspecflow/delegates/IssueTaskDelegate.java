@@ -5,7 +5,7 @@ import org.flowable.engine.delegate.DelegateExecution;
 import org.flowable.engine.delegate.JavaDelegate;
 
 
-public class issueTaskDelegate implements JavaDelegate{
+public class IssueTaskDelegate implements JavaDelegate{
 
     private Expression name;
 
