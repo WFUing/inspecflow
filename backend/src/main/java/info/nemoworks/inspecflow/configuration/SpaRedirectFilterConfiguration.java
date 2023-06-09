@@ -1,6 +1,5 @@
 package info.nemoworks.inspecflow.configuration;
 
-
 import java.io.IOException;
 import java.util.regex.Pattern;
 
