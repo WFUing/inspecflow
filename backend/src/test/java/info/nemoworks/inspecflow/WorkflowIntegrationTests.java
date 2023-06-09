@@ -5,8 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.ExtensionElement;
+import org.flowable.bpmn.model.FlowElement;
+import org.flowable.engine.RepositoryService;
 import org.flowable.engine.RuntimeService;
 import org.flowable.engine.TaskService;
 import org.flowable.engine.test.Deployment;
@@ -25,16 +30,32 @@ class WorkflowIntegrationTests {
 	private RuntimeService runtimeService;
 	@Autowired
 	private TaskService taskService;
+	@Autowired
+	private RepositoryService repositoryService;
 
 	@Test
 	@Deployment(resources = { "processes/sequential-usertasks.bpmn20.xml" })
 	void usertaskTest() {
-		runtimeService.startProcessInstanceByKey("sequential-usertasks");
+
+		String did = runtimeService.startProcessInstanceByKey("sequential-usertasks").getProcessDefinitionId();
 		Task task = taskService.createTaskQuery().singleResult();
 		assertEquals("task1", task.getName());
 		taskService.complete(task.getId());
 		task = taskService.createTaskQuery().singleResult();
 		assertEquals("task2", task.getName());
+		// ExecutionEntity entity = (ExecutionEntity)
+		// runtimeService.createExecutionQuery().processDefinitionId(did).singleResult();
+		// entity.getCurrentFlowElement();
+		BpmnModel model = repositoryService.getBpmnModel(did);
+		String iii = task.getTaskDefinitionKey();
+		FlowElement element = model.getFlowElement("sid-7154B8CF-DFE6-4614-9339-4EC087DDDBFD");
+		Map<String, List<ExtensionElement>> m = element.getExtensionElements();
+		System.out.println(m.keySet());
+		System.out.println(m.values());
+		if(m.containsKey("property")) {
+			 System.out.println(m.get("property"));;
+			 System.out.println(m.get("property").get(0).getElementText());;
+		}
 		taskService.complete(task.getId());
 		assertEquals(0, runtimeService.createProcessInstanceQuery().count());
 	}
@@ -53,5 +74,5 @@ class WorkflowIntegrationTests {
 		taskService.complete(task.getId());
 		assertEquals(0, runtimeService.createProcessInstanceQuery().count());
 	}
-	
+
 }

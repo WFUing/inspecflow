@@ -4,7 +4,13 @@
     <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
     <userTask id="sid-8BCFE6D4-CB6B-4706-A40A-70D05E74CD90" name="task1" flowable:formFieldValidation="true"></userTask>
     <sequenceFlow id="sid-131CE5DF-262B-4C09-B8DD-49E9BC8F509F" sourceRef="startEvent1" targetRef="sid-8BCFE6D4-CB6B-4706-A40A-70D05E74CD90"></sequenceFlow>
-    <userTask id="sid-7154B8CF-DFE6-4614-9339-4EC087DDDBFD" name="task2" flowable:formFieldValidation="true"></userTask>
+    <userTask id="sid-7154B8CF-DFE6-4614-9339-4EC087DDDBFD" name="task2" flowable:formFieldValidation="true">
+      <extensionElements>
+        <flowable:property name="url">
+          <![CDATA[localhost:8888/aaa]]>
+        </flowable:property>
+      </extensionElements>
+    </userTask>
     <sequenceFlow id="sid-33CEF347-B06A-4603-8DDF-28AF5F833486" sourceRef="sid-8BCFE6D4-CB6B-4706-A40A-70D05E74CD90" targetRef="sid-7154B8CF-DFE6-4614-9339-4EC087DDDBFD"></sequenceFlow>
     <endEvent id="sid-981471C3-1A71-42A9-98AF-E624C9398993"></endEvent>
     <sequenceFlow id="sid-6143FB84-9ADD-4128-9F78-BE16D1433230" sourceRef="sid-7154B8CF-DFE6-4614-9339-4EC087DDDBFD" targetRef="sid-981471C3-1A71-42A9-98AF-E624C9398993"></sequenceFlow>
