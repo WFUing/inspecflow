@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "168cbd0e-0381-4581-a635-d9c3de3b2108",
+		"name": "inspectflow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27867922"
+	},
+	"item": [
+		{
+			"name": "localhost:8888/api/process",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processKey\": \"taskflow\",\n    \"businessKey\": \"workflow1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/process",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/current",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "16b3350c-06be-11ee-b2a8-a2d9a98e6d2d",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/current",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/assignee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"assigneeId\": \"zhangsan\",\n    \"processInstanceId\": \"fda2c9d2-06b7-11ee-8e6c-a2d9a98e6d2d\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/assignee",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"assignee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/claimassignee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"taskId\": \"\",\n    \"assigneeId\": \"zhangsan\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/claimassignee",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"claimassignee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/comp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "ac99f3fb-068d-11ee-8db3-ca8fadfef880"
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/comp",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"comp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/complete/nextwithvars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"taskId\" : \"63429f95-068d-11ee-8db3-ca8fadfef880\",\n    \"nextVariables\" : {\n        \"isclosed\" : false\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/complete/nextwithvars",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"complete",
+						"nextwithvars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/complete/nextwithvars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"taskId\" : \"63429f95-068d-11ee-8db3-ca8fadfef880\",\n    \"nextAssigneeId\" : \"zhangsan\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/complete/nextwithvars",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"complete",
+						"nextwithvars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/complete/nextwithvars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"taskId\" : \"dd8ec273-068d-11ee-8db3-ca8fadfef880\",\n    \"nextVariables\" : {\n        \"ispassed\" : true,\n        \"issues\" : [\"issue1\", \"issues2\", \"issues3\"]\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/complete/nextwithvars",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"complete",
+						"nextwithvars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/process/instances",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/api/process/instances",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"process",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8888/api/tasks/currenturl",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "16b3f863-06be-11ee-b2a8-a2d9a98e6d2d"
+				},
+				"url": {
+					"raw": "localhost:8888/api/tasks/currenturl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"tasks",
+						"currenturl"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
